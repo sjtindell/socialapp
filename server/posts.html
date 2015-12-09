@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
     <title>Mean App</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -8,8 +9,16 @@
   <body ng-app="app">
     <div ng-controller="PostsCtrl" class="container">
       <h1>Recent Posts</h1>
-      <input ng-model="postBody" class="form-control" />
-      <button ng-click="addPost()" class="btn btn-default">Add Post</button>
+      <form role="form">
+        <div class="form-group">
+          <div class="input-group">  
+            <input ng-model="postBody" class="form-control" />
+            <span class="input-group-btn">
+              <button ng-click="addPost()" class="btn btn-default">Add Post</button>
+            </span>
+          </div>
+        </div>
+      </form>
       <ul class="list-group">
         <li ng-repeat="post in posts" class="list-group-item">
           <strong>@{{ post.username }}</strong>
@@ -19,8 +28,24 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script>
+      // create our app module
       var app = angular.module("app", [])
+
+      // create the PostCtrl module
+      // dependency inject $scope
       app.controller("PostsCtrl", function($scope) {
+        $scope.addPost = function() {
+          // input box can be empty
+          if ($scope.postBody) {
+            $scope.posts.unshift({
+              username: "userxxx",
+              body: $scope.postBody
+            })
+            $scope.postBody = null
+          }
+        }
+        
+        // starting data
         $scope.posts = [
           {
             username: "tindellxxx",
@@ -31,15 +56,8 @@
             body: "Trying out angular.js..."
           }
         ]
-
-        $scope.addPost = function() {
-          $scope.posts.unshift({
-            username: "userxxx",
-            body: $scope.postBody
-          })
-          $scope.postBody = null
-        }
-      })
+      }
+        
     </script>
   </body>
 </html>
