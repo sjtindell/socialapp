@@ -19,9 +19,24 @@
 	    </li>
 	  </ul>
     </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script>
-    angular.module("app", [])
-  </script>
+    <div ng-controller="PostsCtrl">
+      {{ posts }}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+      var app = angular.module("app", [])
+      app.controller("PostsCtrl", function($scope) {
+        $scope.posts = [
+          {
+            username: "tindellxxx",
+            body: "Node rules!"
+          },
+          {
+            username: "bobarcher",
+            body: "Trying out angular.js..."
+          }
+        ]
+      })
+    </script>
   </body>
 </html>
