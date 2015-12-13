@@ -3,12 +3,15 @@
   "author": "sjtindell",
   "description": "A simple twitter clone.",
   "license": "MIT",
+  "private": "true",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.1.1",
     "gulp-uglify": "^1.5.1",
     "mongoose": "^4.3.1"
   }
