@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 
 app.get("/", function(req, res) {
-  res.sendFile("./layouts/posts.html");
+  res.sendFile(__dirname + "/layouts/posts.html");
 })
 
 
