@@ -1,16 +1,23 @@
 var bodyParser = require("body-parser");
 var express = require("express");
-var Post = require("../models/post");
+var Post = require("./models/post");
 
 
 var app = express();
 app.use(bodyParser.json());
 
 
-app.get("/api/posts", function(req, res) {
-  Post.find(function(err, posts) {
-    if (err) { return next(err) };
-    res.json(posts);
+app.get("/", function(req, res) {
+  res.sendFile("./layouts/posts.html");
+})
+
+
+app.get("/api/posts", function(req, res, next) {
+  Post.find()
+  .sort("-date")
+  .exec(function(err, posts) {
+    if (err) { return next(err) }
+    res.json(posts)
   })
 })
 
