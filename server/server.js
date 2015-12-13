@@ -8,12 +8,10 @@ app.use(bodyParser.json());
 
 
 app.get("/api/posts", function(req, res) {
-  res.json([
-    {
-      username: "sjtindellxxx",
-      body: "node rules!"
-    }
-  ]);
+  Post.find(function(err, posts) {
+    if (err) { return next(err) };
+    res.json(posts);
+  })
 })
 
 
