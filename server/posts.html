@@ -33,7 +33,7 @@
 
       // create the PostCtrl module
       // dependency inject $scope
-      app.controller("PostsCtrl", function($scope) {
+      app.controller("PostsCtrl", function($scope, $http) {
         $scope.addPost = function() {
           // input box can be empty
           if ($scope.postBody) {
@@ -45,19 +45,11 @@
           }
         }
         
-        // starting data
-        $scope.posts = [
-          {
-            username: "tindellxxx",
-            body: "Node rules!"
-          },
-          {
-            username: "bobarcher",
-            body: "Trying out angular.js..."
-          }
-        ]
+        $http.get("http://localhost:3000/api/posts")
+        .success(function(posts) {
+          $scope.posts = posts
+        })
       })
-        
     </script>
   </body>
 </html>
