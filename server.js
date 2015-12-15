@@ -12,4 +12,4 @@ app.use("/api/posts", require("./controllers/api/posts"));
 
 app.listen(3000, function() {
   console.log("Server listening on", 3000);
-})
+});
