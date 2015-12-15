@@ -1,6 +1,9 @@
 # Node
 node_modules
 
+# Web App minified static files
+assets
+
 # Added by Me
 notes
 *.swp
