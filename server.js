@@ -3,6 +3,7 @@ var express = require("express");
 
 var app = express();
 app.use(bodyParser.json());
+app.use(require("./auth"))
 
 
 app.use("/", require("./controllers/static"));
