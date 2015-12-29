@@ -1,5 +1,6 @@
 # Node
 node_modules
+config.js
 
 # Web App minified static files
 assets
