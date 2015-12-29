@@ -22,4 +22,7 @@ angular.module("app")
       }
     })
   }
+  svc.logout = function() {
+    delete $http.defaults.headers.common["X-Auth"]
+  }
 })
