@@ -12,13 +12,13 @@ router.post("/", function(req, res, next) {
     if (err) { return next(err) }
     if (!user) { return res.status(401).send() } 
     bcrypt.compare(req.body.password, user.password, function(err, valid) {
-      if (err) { return next(err) };
-      if (!valid) { return res.status(401).send() };
-      var token = jwt.encode({username: user.username}, config.secret);
-      res.send(token);
-    });
-  });
-});
+      if (err) { return next(err) }
+      if (!valid) { return res.status(401).send() }
+      var token = jwt.encode({username: user.username}, config.secret)
+      res.send(token)
+    })
+  })
+})
 
 
 module.exports = router

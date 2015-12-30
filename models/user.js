@@ -5,4 +5,4 @@ var user = db.Schema({
   password: {type: String, select: false}
 })
 
-module.exports = db.model("User", user);
+module.exports = db.model("User", user)
