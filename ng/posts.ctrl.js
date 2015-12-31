@@ -1,6 +1,5 @@
 angular.module("app")
-.controller("PostsCtrl", function($scope, PostsSvc) {
-  
+.controller("PostsCtrl", function($scope, PostsSvc) {  
   $scope.addPost = function() {
     if ($scope.postBody) {
       PostsSvc.create({
@@ -22,5 +21,4 @@ angular.module("app")
       $scope.posts.unshift(post)
     })
   })
-
 })
